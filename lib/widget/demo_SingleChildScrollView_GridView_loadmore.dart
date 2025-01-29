@@ -57,11 +57,11 @@ class _LoadMoreInNestedGridViewState extends State<LoadMoreInNestedGridView> {
         title:const Text('GridView Load More'),
       ),
       body: SingleChildScrollView(
-        controller: _scrollController, // Attach controller
+        controller: _scrollController, // Attach controller  // Gắn hàm lắng nghe ở trong SingleChildScrollView
         child: Column(
           children: [
             GridView.builder(
-              physics: const NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),  // Vô Hiệu hóa hoàn toàn khả năng cuộn để có thể nhận hiệu ứng cuộn của SingleChildScrollView
               shrinkWrap: true,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

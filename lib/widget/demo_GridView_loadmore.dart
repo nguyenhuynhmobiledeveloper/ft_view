@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-class LoadMoreGridView extends StatefulWidget {
+class GridViewLoadMore extends StatefulWidget {
+  const GridViewLoadMore({super.key});
+
   @override
-  _LoadMoreGridViewState createState() => _LoadMoreGridViewState();
+  _GridViewLoadMoreState createState() => _GridViewLoadMoreState();
 }
 
-class _LoadMoreGridViewState extends State<LoadMoreGridView> {
+class _GridViewLoadMoreState extends State<GridViewLoadMore> {
   List<int> items = List.generate(20, (index) => index); // Initial data
   bool isLoading = false;
   final ScrollController _scrollController = ScrollController();
@@ -47,13 +49,14 @@ class _LoadMoreGridViewState extends State<LoadMoreGridView> {
     });
   }
 
+  // Sử dụng ScrollController để có thể lắng nghe sự kiện cuộn tới cuối trang và loadmore thêm dữ liệu
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GridView Load More'),
+        title: const Text('GridView Load More'),
       ),
-      body: GridView.builder(
+      body: GridView.builder(   // Không để thuộc tính physics : nó cũng tụ có cái cuộn 
         controller: _scrollController, // Attach the scroll controller
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // Number of columns
@@ -71,7 +74,7 @@ class _LoadMoreGridViewState extends State<LoadMoreGridView> {
             );
           } else {
             // Render loading indicator
-            return Center(
+            return const  Center(
               child: CircularProgressIndicator(),
             );
           }

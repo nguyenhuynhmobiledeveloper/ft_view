@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class GridViewLoadMoreExample extends StatefulWidget {
+class ContainerNotificationListenerGridviewLoadMore extends StatefulWidget {
   @override
-  _GridViewLoadMoreExampleState createState() =>
-      _GridViewLoadMoreExampleState();
+  _ContainerNotificationListenerGridviewLoadMoreState createState() =>
+      _ContainerNotificationListenerGridviewLoadMoreState();
 }
 
-class _GridViewLoadMoreExampleState extends State<GridViewLoadMoreExample> {
+class _ContainerNotificationListenerGridviewLoadMoreState extends State<ContainerNotificationListenerGridviewLoadMore> {
   List<int> items = List.generate(20, (index) => index); // Initial data
   bool isLoading = false;
 
@@ -35,7 +35,7 @@ class _GridViewLoadMoreExampleState extends State<GridViewLoadMoreExample> {
         height: 400,
         decoration: const BoxDecoration(color: Colors.amber),
         padding: const EdgeInsets.all(8.0),
-        child: NotificationListener<ScrollNotification>(
+        child: NotificationListener<ScrollNotification>(   // Sử dụng notification để lắng nghe thông báo cuộn từ các Widget con
           onNotification: (ScrollNotification scrollInfo) {
             // Detect when the user has scrolled to the bottom
             if (!isLoading &&
@@ -75,5 +75,5 @@ class _GridViewLoadMoreExampleState extends State<GridViewLoadMoreExample> {
 }
 
 void main() => runApp(MaterialApp(
-  home: GridViewLoadMoreExample(),
+  home: ContainerNotificationListenerGridviewLoadMore(),
 ));
