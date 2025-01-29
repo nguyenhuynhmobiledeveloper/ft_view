@@ -11,9 +11,9 @@ void main() async {
 
   // runApp(const TinCoderMainView()); // tin_coder_view -- view-library
 
-  //   runApp(const DemoWidget());    // folder widget
+    runApp(const DemoWidget());    // folder widget
 
-  runApp(const MyApp());
+  // runApp(const MyApp());
 
 
 }

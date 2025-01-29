@@ -22,6 +22,7 @@ import 'package:demo_ft_widget/widget/Scaffold/demo_Scaffold.dart';
 import 'package:demo_ft_widget/widget/ScrollView/demo_SingleChildScrollView.dart';
 
 import 'demo_Container_NotificationListener_GridView_loadmore.dart';
+import 'demo_Listview_ScrollController.dart';
 import 'demo_SingleChildScrollView_Container_NotificationListener_GridView_loadmore.dart';
 import 'demo_SingleChildScrollView_GridView_loadmore.dart';
 import 'demo_CircularProgressIndicator.dart';
@@ -51,11 +52,14 @@ class _DemoWidgetState extends State<DemoWidget> {
       // home: ( const DemoBotomAppBar()),
       // home: ( const DemoAlign()),
       // home: ( const LoadMoreInNestedGridView()),
-        home: (  const GridViewLoadMore()),
+      //   home: (  const GridViewLoadMore()),
       //   home: (  ContainerNotificationListenerGridviewLoadMore()),
       //   home: (  SingleChildScrollViewContainerNotificationListenerGridViewLoadMore()),
       // home: ( const LoadMoreInNestedGridView()),
       // home: ( const CircularLoadingExample()),
+      home: ( const ListViewScrollController()),
+
+
 
 
       // routes: routes, // Nhận 1 danh sách các màn hình
