@@ -1,8 +1,4 @@
-
-
-
-
-
+import 'package:demo_ft_widget/widget/widget_main.dart';
 import 'package:flutter/material.dart';
 
 
@@ -13,7 +9,8 @@ void main() async {
   // runApp(const MyApp());
 
   // runApp(const TinCoderMainView()); // tin_coder_view -- view-library
-  runApp(const MyApp());
+  // runApp(const MyApp());
+    runApp(const DemoWidget());    // folder widget
 }
 
 
@@ -35,7 +32,7 @@ class _MyAppState extends State<MyApp> {
           primaryColor: Colors.blueGrey),
       home: (
           // const DemoDropDownButton2()
-          LoadingButton()
+          const LoadingButton()
       ),
     );
   }
