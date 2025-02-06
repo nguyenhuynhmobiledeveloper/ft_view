@@ -1,3 +1,4 @@
+import 'package:demo_ft_widget/demo_NotificationListener.dart';
 import 'package:demo_ft_widget/widget/widget_main.dart';
 import 'package:flutter/material.dart';
 
@@ -7,9 +8,6 @@ import 'demo_ListView_ScrollController_loadmore.dart';
 import 'drop_down/demo_DropdownButton2.dart';
 
 void main() async {
-
-
-  // runApp(const TinCoderMainView()); // tin_coder_view -- view-library
 
     runApp(const DemoWidget());    // folder widget
 
@@ -35,11 +33,12 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
           brightness: Brightness.light,
           primaryColor: Colors.blueGrey),
-      home: (
+      home:
           // const DemoDropDownButton2()
           // const LoadingButton()
-          const ListViewScrollControllerLoadMore()
-      ),
+          // const ListViewScrollControllerLoadMore()
+          NotificationListenerExample(),
+
     );
   }
 }

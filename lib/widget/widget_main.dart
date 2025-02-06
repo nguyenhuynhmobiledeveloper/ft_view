@@ -26,6 +26,8 @@ import 'demo_Listview_ScrollController.dart';
 import 'demo_SingleChildScrollView_Container_NotificationListener_GridView_loadmore.dart';
 import 'demo_SingleChildScrollView_GridView_loadmore.dart';
 import 'demo_CircularProgressIndicator.dart';
+import 'demo_Text.dart';
+import 'demo_TextPainter.dart';
 // import 'demo_GridView.dart';
 
 class DemoWidget extends StatefulWidget {
@@ -52,12 +54,16 @@ class _DemoWidgetState extends State<DemoWidget> {
       // home: ( const DemoBotomAppBar()),
       // home: ( const DemoAlign()),
       // home: ( const LoadMoreInNestedGridView()),
-      //   home: (  const GridViewLoadMore()),
-      //   home: (  ContainerNotificationListenerGridviewLoadMore()),
-      //   home: (  SingleChildScrollViewContainerNotificationListenerGridViewLoadMore()),
+      // home: (  const GridViewLoadMore()),
+      // home: (  ContainerNotificationListenerGridviewLoadMore()),
+      // home: (  SingleChildScrollViewContainerNotificationListenerGridViewLoadMore()),
       // home: ( const LoadMoreInNestedGridView()),
       // home: ( const CircularLoadingExample()),
-      home: ( const ListViewScrollController()),
+      // home: ( const ListViewScrollController()),
+      // home: ( const DemoText()),
+      home: ( const DemoTextPainter()),
+
+
 
 
 
