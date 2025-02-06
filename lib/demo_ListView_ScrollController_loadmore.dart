@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+
+void main() {
+  runApp(const MaterialApp(
+    home: ListViewScrollControllerLoadMore(),
+  ));
+}
+
+
 class ListViewScrollControllerLoadMore extends StatefulWidget {
   const ListViewScrollControllerLoadMore({super.key});
 
@@ -8,6 +16,7 @@ class ListViewScrollControllerLoadMore extends StatefulWidget {
 }
 
 class _ListViewScrollControllerLoadMoreState extends State<ListViewScrollControllerLoadMore> {
+
   // Initial list of items
   List<int> _items = List.generate(20, (index) => index);
   bool _isLoading = false;
@@ -31,13 +40,14 @@ class _ListViewScrollControllerLoadMoreState extends State<ListViewScrollControl
   }
 
 
-  late ScrollController _scrollController;
+  late ScrollController _scrollController; // Biến ScrollController để kiểm soát và lắng nghe việc cuộn View
+
   @override
   void initState() {
     super.initState();
-     _scrollController = ScrollController();
+     _scrollController = ScrollController();  // Gán giá trị cho biến ScrollController
 
-    _scrollController.addListener(() {
+    _scrollController.addListener(() {   // Gán hàm lắng nghe cho thao tác cuộn --> cuộn tới cuối cùng thì load thêm Call API load thêm data
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
         _loadMore();
@@ -53,16 +63,17 @@ class _ListViewScrollControllerLoadMoreState extends State<ListViewScrollControl
         title: const Text('Load More Example'),
       ),
       body: ListView.builder(
-        controller: _scrollController,
-        itemCount: _items.length + 1, // Add 1 for the loading indicator
+        controller: _scrollController,   // Đưa biến _scrollController vào thuộc tính controller của ListView.builder
+        itemCount: _items.length + 1, // Add 1 for the loading indicator + thêm số lượng 1 cho View Loading indicator
+
         itemBuilder: (context, index) {
           if (index < _items.length) {
             return ListTile(
               title: Text('Item ${_items[index]}'),
             );
-          } else {
+          } else {   // Hiển thị View loading indicator
             // Display loading indicator at the end
-            if (_isLoading) {
+            if (_isLoading) {  // Nếu đang load thì hiện CircularProgressIndicator(),
               return const  Center(
                 child: Padding(
                   padding:  EdgeInsets.all(8.0),
@@ -82,8 +93,4 @@ class _ListViewScrollControllerLoadMoreState extends State<ListViewScrollControl
   }
 }
 
-// void main() {
-//   runApp(MaterialApp(
-//     home: ListViewScrollControllerLoadMore(),
-//   ));
-// }
+
