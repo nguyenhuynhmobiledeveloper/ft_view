@@ -45,6 +45,8 @@ class _DynamicButtonState extends State<DynamicButton> {
         });
       },
       child: Container(
+        height: 50,
+        constraints: const BoxConstraints(maxWidth:  200 ),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8), // Container không cần thuộc tính width nó sẽ tự nhận theo chiều rộng của cái Text bên trong ruột
         decoration: BoxDecoration(
           border: Border.all(color: Colors.blueAccent),
@@ -53,6 +55,8 @@ class _DynamicButtonState extends State<DynamicButton> {
         child: Text(
           buttonText,
           style:const TextStyle(fontSize: 16),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
         ),
       ),
     );
