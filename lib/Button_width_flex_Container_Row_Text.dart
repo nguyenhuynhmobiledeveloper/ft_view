@@ -45,29 +45,28 @@ class _DynamicButtonState extends State<DynamicButton> {
         });
       },
       child: Container(
-        height: 50,
+        // height: 50,
         constraints: const BoxConstraints(maxWidth:  200 ),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8), // Container không cần thuộc tính width nó sẽ tự nhận theo chiều rộng của cái Text bên trong ruột
         decoration: BoxDecoration(
           border: Border.all(color: Colors.blueAccent),
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(2.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.check, color: Colors.blueAccent),
-              Text(
+        child: Row(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          // crossAxisAlignment: CrossAxisAlignment.center,  // 2 thuộc tính trên trong ví dụ này không tác động đến
+          mainAxisSize: MainAxisSize.min,  // Cần có  mainAxisSize để Row chỉ chiếm phần width vừa đủ để hiện hết nội dung con của nó
+          children: [
+            const Icon(Icons.check, color: Colors.blueAccent),
+            Flexible(   // Để cho Text chiếm hết phần nội dung còn lại -- hiệu ứng hoàn toàn khác Expanded
+              child: Text(
                 buttonText,
                 style:const TextStyle(fontSize: 16),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
