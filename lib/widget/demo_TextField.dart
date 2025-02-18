@@ -59,11 +59,11 @@ class _DemoTextFieldState extends State<DemoTextField> {
               style: const TextStyle(fontSize: 20, color: Colors.red),
             ),
             Container(
-                margin: EdgeInsets.only(top: 100),
+                margin:const EdgeInsets.only(top: 100),
                 height: 100,
                 color: isOn == true ? Colors.amber : Colors.red,
                 child: InkWell(
-                  child: Text("Bấm để xoá ô nhập dữ liệu "),
+                  child:const Text("Bấm để xoá ô nhập dữ liệu "),
                   onTap: () {
                     setState(() {
                       // setState là để

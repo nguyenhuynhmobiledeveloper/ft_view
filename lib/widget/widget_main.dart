@@ -14,6 +14,7 @@ import 'package:demo_ft_widget/widget/demo_Row.dart';
 import 'package:demo_ft_widget/widget/demo_Stack.dart';
 import 'package:demo_ft_widget/widget/demo_TextField.dart';
 import 'package:demo_ft_widget/widget/demo_Scaffold.dart';
+import 'package:demo_ft_widget/widget/demo_TextField_advance.dart';
 import 'package:demo_ft_widget/widget/demo_showModalBottomSheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -61,8 +62,8 @@ class _DemoWidgetState extends State<DemoWidget> {
       // home: ( const CircularLoadingExample()),
       // home: ( const ListViewScrollController()),
       // home: ( const DemoText()),
-      home: ( const DemoTextPainter()),
-
+      // home: ( const DemoTextPainter()),
+          home: (CustomTextField()),
 
 
 
