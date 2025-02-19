@@ -70,7 +70,7 @@ class DemoStatelessWidget extends StatelessWidget {
                   width: 100,
                   color: Colors.amber,
                 )),
-            SizedBox(
+           const SizedBox(
               height: 100,
             ),
             InkWell(

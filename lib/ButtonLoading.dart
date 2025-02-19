@@ -1,6 +1,29 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          brightness: Brightness.light,
+          primaryColor: Colors.blueGrey),
+      home:  const LoadingButton() );
+  }
+}
+
+
 class LoadingButton extends StatefulWidget {
   const LoadingButton({super.key});
 

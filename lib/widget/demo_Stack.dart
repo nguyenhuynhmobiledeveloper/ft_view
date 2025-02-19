@@ -2,6 +2,93 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+// Ví dụ 1 :
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+// 🔥 Stack trong Flutter
+// Stack trong Flutter là một widget dùng để xếp chồng các widget con lên nhau theo chiều dọc hoặc ngang. Các widget con trong Stack có thể được định vị bằng cách sử dụng Positioned hoặc Align.
+//
+// 📌 Các thuộc tính của Stack
+// 1. alignment
+//  Xác định vị trí mặc định của các widget con trong Stack nếu không có Positioned.
+//  Giá trị: Alignment (ví dụ: Alignment.topLeft, Alignment.center, ...).
+
+// 2. textDirection
+//  Hướng văn bản trong Stack (hữu ích khi sử dụng trong các ngôn ngữ từ phải sang trái như tiếng Ả Rập).
+//  Giá trị: TextDirection.ltr hoặc TextDirection.rtl.
+
+// 3. fit
+//  Xác định cách các widget con mở rộng để lấp đầy không gian có sẵn.
+//  Giá trị: StackFit.loose, StackFit.expand, StackFit.passthrough.
+
+// 4. clipBehavior
+//  Xác định cách Stack cắt bớt nội dung con vượt quá kích thước của nó.
+//  Giá trị: Clip.none, Clip.hardEdge, Clip.antiAlias, Clip.antiAliasWithSaveLayer.
+
+// 5. children
+//  Danh sách các widget con của Stack, có thể là bất kỳ widget nào.
+
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(title: Text("Stack Example")),
+        body: Center(
+          child: Stack(
+            alignment: Alignment.center,
+            textDirection: TextDirection.ltr,
+            fit: StackFit.loose,
+            clipBehavior: Clip.antiAlias,
+            children: [
+              // Layer 1: Hình chữ nhật nền
+              Container(
+                width: 300,
+                height: 300,
+                color: Colors.blueAccent,
+              ),
+
+              // Layer 2: Vòng tròn ở giữa
+              Container(
+                width: 150,
+                height: 150,
+                decoration: const BoxDecoration(
+                  color: Colors.redAccent,
+                  shape: BoxShape.circle,
+                ),
+              ),
+
+              // Layer 3: Text ở giữa
+            const  Positioned(
+                top: 20,
+                child: Text(
+                  "Flutter Stack",
+                  style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+
+              // Layer 4: Icon ở góc dưới phải
+            const Positioned(
+                bottom: 10,
+                right: 10,
+                child: Icon(Icons.star, size: 40, color: Colors.yellow),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
 class DemoStack extends StatefulWidget {
   const DemoStack({Key? key}) : super(key: key);
 
@@ -56,6 +143,8 @@ class _DemoStackState extends State<DemoStack> {
   }
 }
 
+
+// Cách thuộc tính của Stack
 //Stack Stack({
 //   Key? key,
 //   AlignmentGeometry alignment = AlignmentDirectional.topStart,
@@ -75,3 +164,5 @@ class _DemoStackState extends State<DemoStack> {
 //   double? height,
 //   required Widget child,
 // })
+
+
