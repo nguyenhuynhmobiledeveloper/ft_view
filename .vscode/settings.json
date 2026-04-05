@@ -2,7 +2,7 @@
   "editor.codeActionsOnSave": {},
   "[dart]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "Dart-Code.dart-code"
     // "editor.formatOnSave": true,
   },
   "editor.formatOnSave": true,
