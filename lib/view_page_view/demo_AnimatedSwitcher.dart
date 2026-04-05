@@ -49,6 +49,7 @@ class _demo_AnimatedSwitcherState extends State<demo_AnimatedSwitcher> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text('Demo AnimatedSwitcher')),
       body: Container(
         height: 100,
         margin: EdgeInsets.only(top: 66),

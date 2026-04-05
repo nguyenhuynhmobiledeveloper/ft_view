@@ -15,22 +15,25 @@ class DemoTextPainter extends StatelessWidget {
 
     int numberOfLines = calculateNumberOfLines(text, textStyle, maxWidth);  // Tính toán số dòng của Text được hiển thị
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: maxWidth,
-          child: Text(
-            text,
-            style: textStyle,
+    return Scaffold(
+      appBar: AppBar(title: Text('Demo TextPainter')),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: maxWidth,
+            child: Text(
+              text,
+              style: textStyle,
+            ),
           ),
-        ),
-        const SizedBox(height: 20),
-        Text(
-          'Number of lines: $numberOfLines',
-          style:const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-      ],
+          const SizedBox(height: 20),
+          Text(
+            'Number of lines: $numberOfLines',
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
     );
   }
 

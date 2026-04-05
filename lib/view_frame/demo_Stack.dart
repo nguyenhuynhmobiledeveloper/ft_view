@@ -6,9 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+
 
 // 🔥 Stack trong Flutter
 // Stack trong Flutter là một widget dùng để xếp chồng các widget con lên nhau theo chiều dọc hoặc ngang. Các widget con trong Stack có thể được định vị bằng cách sử dụng Positioned hoặc Align.

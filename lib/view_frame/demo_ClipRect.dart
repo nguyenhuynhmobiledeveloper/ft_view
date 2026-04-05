@@ -9,8 +9,7 @@ class demo_ClipRect extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: const Text('ClipRect Example'),
         ),
@@ -34,9 +33,9 @@ class demo_ClipRect extends StatelessWidget {
               ),
             ),
           ),
-        ),
       ),
     );
+
   }
 }
 

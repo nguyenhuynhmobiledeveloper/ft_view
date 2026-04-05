@@ -7,8 +7,7 @@ void main() {
 class demo_ClipRRect extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(title: Text("Demo ClipRRect")),
         body: Center(
           child: ClipRRect(
@@ -33,7 +32,7 @@ class demo_ClipRRect extends StatelessWidget {
           ),
 
         ),
-      ),
+    
     );
   }
 }

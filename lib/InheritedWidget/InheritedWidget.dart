@@ -50,6 +50,7 @@ class MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     print('rebuild MyHomePage');
     return Scaffold(
+      appBar: AppBar(title: Text('InheritedWidget Demo')),
       body: MyInheritedWidget(
         isLoading: _isLoading,
         counter: _counter,

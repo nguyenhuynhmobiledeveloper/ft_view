@@ -5,9 +5,8 @@ class DemoText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Limit Lines Example')),
+    return Scaffold(
+      appBar: AppBar(title: Text('Demo Text')),
         body:const Center(
           child: Text(
             'This is an example of a Flutter text widget. '
@@ -18,7 +17,7 @@ class DemoText extends StatelessWidget {
             style: TextStyle(fontSize: 16),
           ),
         ),
-      ),
+   
     );
   }
 }

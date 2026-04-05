@@ -59,6 +59,7 @@ class _demo_PageControllerState extends State<demo_PageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text('Demo PageController')),
       body: Container(
         height: 100,
           margin: EdgeInsets.only(top: 66),

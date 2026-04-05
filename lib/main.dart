@@ -1,3 +1,4 @@
+import 'package:demo_ft_widget/all_view.dart';
 import 'package:demo_ft_widget/view_alert/demo_AlertDialog.dart';
 import 'package:demo_ft_widget/view_frame/demo_Align.dart';
 import 'package:demo_ft_widget/view_BottomNavigationBar/demo_BottomAppBar.dart';
@@ -79,7 +80,7 @@ class _MyAppState extends State<MyApp> {
 
 
 Map<String, WidgetBuilder> get routes => {
-      '/': (context) => const DemoScaffold(),
+      '/': (context) => const AllView(),
       '/Container': (context) => const DemoContainer(),
       '/Image': (context) => const DemoImage(),
       '/Column': (context) => const DemoColumn(),

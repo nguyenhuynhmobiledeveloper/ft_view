@@ -12,6 +12,7 @@ class _DemoAlignState extends State<DemoAlign> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text('Demo Align')),
       body: SafeArea(
         child: Container(
             child: Column(children: [

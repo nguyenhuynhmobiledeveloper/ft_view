@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class demo_Stack_Positioned extends StatelessWidget {
+  const demo_Stack_Positioned({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
+    return Scaffold(
+      appBar: AppBar(title: Text('Demo Stack Positioned')),
+      body: Center(
           child: Stack(
             children: [
               Container(
@@ -31,7 +27,7 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-      ),
+    
     );
   }
 }

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+
 
 // SizedBox là một widget trong Flutter dùng để tạo một hộp có kích thước cụ thể hoặc để
 // điều chỉnh kích thước của một widget con bên trong nó.
@@ -37,11 +35,10 @@ void main() {
 
 
 
-class MyApp extends StatelessWidget {
+class demo_SizeBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(title: const Text("SizedBox Example")),
         body: Center(
           child: Column(
@@ -88,7 +85,7 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-      ),
+   
     );
   }
 }

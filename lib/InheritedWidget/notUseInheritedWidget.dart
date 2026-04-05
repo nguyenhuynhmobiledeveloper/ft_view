@@ -43,6 +43,7 @@ class MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     print('rebuild MyHomePage');
     return Scaffold(
+      appBar: AppBar(title: Text('Not Use InheritedWidget')),
       body: Center(
         child: CounterWidget(
           isLoading: _isLoading,

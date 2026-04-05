@@ -12,6 +12,7 @@ class _demo_ClipRRect_exampleState extends State<demo_ClipRRect_example> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text('Demo ClipRRect Example')),
       body: SafeArea(
         child: Container(
             child: Column(children: [
