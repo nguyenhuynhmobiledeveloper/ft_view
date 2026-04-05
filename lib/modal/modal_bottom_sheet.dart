@@ -13,12 +13,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: ModalBottomSheet(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class ModalBottomSheet extends StatelessWidget {
+  // Sủ dụng showCupertinoModalBottomSheet để hiển thị modal bottom sheet với hiệu ứng trượt lên từ dưới lên và có thể tuỳ chỉnh nhiều hơn so với showModalBottomSheet của Flutter
   void _showModal(BuildContext context) {
     showCupertinoModalBottomSheet(
       context: context,

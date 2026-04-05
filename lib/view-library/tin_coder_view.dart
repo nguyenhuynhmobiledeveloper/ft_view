@@ -5,6 +5,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 
+// File code có nguồn tử tin coder
+
 class TinCoderMainView extends StatefulWidget {
   const TinCoderMainView({Key? key}) : super(key: key);
 
