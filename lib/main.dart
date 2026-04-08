@@ -34,7 +34,6 @@ import 'view_text/demo_TextPainter.dart';
 // import 'demo_GridView.dart';
 
 void main() async {
-
   runApp(const MyApp());
 }
 

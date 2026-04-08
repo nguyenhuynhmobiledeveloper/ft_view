@@ -60,12 +60,13 @@ class AllView extends StatefulWidget {
 }
 
 class _AllViewState extends State<AllView> {
+  // Danh sách các folder sẽ hiển thị , dạng late là sẽ gán giá trị sau 
   late Future<List<LibFolderSection>> _sections;
 
   @override
   void initState() {
     super.initState();
-    _sections = getLibFolderSections();
+    _sections = getLibFolderSections(); // Lấy danh sách từ hàm
   }
 
   @override
@@ -73,34 +74,45 @@ class _AllViewState extends State<AllView> {
     return FutureBuilder<List<LibFolderSection>>(
       future: _sections,
       builder: (context, snapshot) {
+        print('snapshot : ${snapshot}');
+
+        // Trạng thái của snapshot 
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Scaffold(
             body: Center(child: CircularProgressIndicator()),
           );
-        } else if (snapshot.hasError) {
+        }
+        // Khi snapshot lỗi
+        else if (snapshot.hasError) {
           return Scaffold(
             body: Center(child: Text('Error: ${snapshot.error}')),
           );
-        } else if (snapshot.hasData) {
+        }
+        // Khi snapshot có data
+        else if (snapshot.hasData) {
           return Scaffold(
             appBar: AppBar(title: const Text('Thư mục trong lib')),
             body: GridView.builder(
               padding: const EdgeInsets.all(12),
+              // Quy định số hàng số cột, và khoảng cách
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                mainAxisSpacing: 12,
+                mainAxisSpacing: 20,  
                 crossAxisSpacing: 12,
                 childAspectRatio: 1.15,
               ),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
-                final folder = snapshot.data![index];
+                final folder = snapshot.data![index]; // Chỉ lấy tên folder
+                print('folder: ${folder}');
                 return _FolderTile(
+                  // Teen cuar folder 
                   title: folder.folderName,
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute<void>(
-                        builder: (context) => FolderDemosScreen(folder: folder),
+                        // Màn hình bên trong folder (chứa các file)
+                        builder: (context) => FolderDemosScreen(folder: folder), 
                       ),
                     );
                   },
@@ -116,7 +128,7 @@ class _AllViewState extends State<AllView> {
   }
 }
 
-/// Màn hình con: lưới các file `.dart` trong một thư mục.
+/// Màn hình folder: Lưới các file `.dart` trong một folder - chứa các item file
 class FolderDemosScreen extends StatelessWidget {
   const FolderDemosScreen({super.key, required this.folder});
 
@@ -128,6 +140,7 @@ class FolderDemosScreen extends StatelessWidget {
       appBar: AppBar(title: Text(folder.folderName)),
       body: GridView.builder(
         padding: const EdgeInsets.all(12),
+
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: 12,
@@ -135,13 +148,16 @@ class FolderDemosScreen extends StatelessWidget {
           childAspectRatio: 1.0,
         ),
         itemCount: folder.entries.length,
+        // Gridview các item file trong folder
         itemBuilder: (context, index) {
           final e = folder.entries[index];
+          // Các item file
           return _FolderTile(
             title: e.fileLabel,
             subtitle: e.hint,
             onTap: () {
               // Push màn hình demo tương ứng với file đã chọn
+              // Tự tạo 1 màn hình với builder - rồi Navigator sang
               Navigator.of(context).push(
                 MaterialPageRoute<void>(
                   builder: e.builder,
@@ -155,6 +171,7 @@ class FolderDemosScreen extends StatelessWidget {
   }
 }
 
+// View từng folder của Gridview
 class _FolderTile extends StatelessWidget {
   const _FolderTile({
     required this.title,
@@ -168,12 +185,13 @@ class _FolderTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Đây là 1 màn hình Material luôn
     return Material(
       color: Theme.of(context).colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
-        onTap: onTap,
+        onTap: onTap, // Chạy hàm chuyển màn hình được nhận ở trên
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Column(
@@ -205,24 +223,7 @@ class _FolderTile extends StatelessWidget {
   }
 }
 
-class LibDemoEntry {
-  const LibDemoEntry({
-    required this.fileLabel,
-    this.hint,
-    required this.builder,
-  });
 
-  final String fileLabel;
-  final String? hint;
-  final WidgetBuilder builder;
-}
-
-class LibFolderSection {
-  const LibFolderSection(this.folderName, this.entries);
-
-  final String folderName;
-  final List<LibDemoEntry> entries;
-}
 
 final Map<String, WidgetBuilder> allBuilders = {
   'date_time_intl/demo_time.dart': (_) => _scaffoldSimple(
@@ -352,19 +353,28 @@ const Map<String, String?> hints = {
   'view_loading/app.dart': 'Loader overlay + MaterialApp',
 };
 
+
+// Hàm trả ra các floder section
 Future<List<LibFolderSection>> getLibFolderSections() async {
+
+// Đây là 1 map : dạng key: value
   final folderEntries = <String, List<LibDemoEntry>>{};
 
+// Lăp qua các phần tử của allBuilders
   for (final entry in allBuilders.entries) {
     final filePath = entry.key;
+    // Lấy từ phần tử số [0 tới phần tử ) gặp dấu /
     final folderName = filePath.contains('/')
-        ? filePath.substring(0, filePath.lastIndexOf('/'))
+        ? filePath.substring(0, filePath.lastIndexOf('/')) 
         : 'lib';
     final fileName = filePath.contains('/')
         ? filePath.substring(filePath.lastIndexOf('/') + 1)
         : filePath;
-    final builder = entry.value;
 
+
+    final builder = entry.value; // value ở đây chính là widget vẽ ra giao diện
+
+// Nếu folderName chưa có trong Map thì tạo List rỗng, rồi thêm một LibDemoEntry vào List đó (đang là value của Map)
     folderEntries.putIfAbsent(folderName, () => []).add(
           LibDemoEntry(
             fileLabel: fileName,
@@ -374,11 +384,35 @@ Future<List<LibFolderSection>> getLibFolderSections() async {
         );
   }
 
-  return folderEntries.entries
+  return folderEntries.entries  // Sẽ nhận được dạng Iterable<MapEntry<K, V>>. 
       .map((e) => LibFolderSection(e.key, e.value))
-      .toList();
+      .toList(); // Tạo ra 1 List _LibFolderSection để có thể vẽ UI
 }
 
+// Class đối tượng các Entry
+class LibDemoEntry {
+  // constructor của class
+  const LibDemoEntry({
+    required this.fileLabel,
+    this.hint,
+    required this.builder,
+  });
+
+  final String fileLabel;
+  final String? hint; // Hint để sử dụng cho file nào không phải view
+  final WidgetBuilder builder;
+}
+
+// class của đối tượng section folder
+class LibFolderSection {
+  // constructor của class
+  const LibFolderSection(this.folderName, this.entries);
+
+  final String folderName;
+  final List<LibDemoEntry> entries; // List các file có trong folder
+}
+
+// Widget để gói Scaffold cho các widget chưa được gói Scaffold trong file
 Scaffold _scaffoldSimple(String title, Widget body) {
   return Scaffold(
     appBar: AppBar(title: Text(title)),
