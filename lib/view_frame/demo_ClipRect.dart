@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const demo_ClipRect());
-}
 
 class demo_ClipRect extends StatelessWidget {
   const demo_ClipRect({Key? key}) : super(key: key);
@@ -40,7 +37,7 @@ class demo_ClipRect extends StatelessWidget {
 }
 
 
-// Có thể sử dụng ClipRect để ứng dụng cho việc căt View nếu view con to hơn  View cha
+// Có thể sử dụng ClipRect để ứng dụng cho việc cắt bớt View nếu view con to hơn View cha
 // Tránh đưa ra lỗi Render overflow
 
 // Giải thích:

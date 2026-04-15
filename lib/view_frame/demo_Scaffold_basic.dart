@@ -1,38 +1,16 @@
 import 'package:flutter/material.dart';
 // import 'package:syncfusion_flutter_charts/charts.dart';
 
-class Demo_Scaffold extends StatefulWidget {
-  const Demo_Scaffold({super.key});
-
-  @override
-  State<Demo_Scaffold> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<Demo_Scaffold> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        // 1 App chỉ - phải có 1 MaterialApp
-        title: 'Flutter Demo', // Tên của ngôi nhà
-        theme: ThemeData(
-          // Màu sơn của ngôi nhà
-          primarySwatch: Colors.green,
-        ),
-        home:
-            MyHomePage() //Nhà chính // Tới đây hất lên là hết gốc của App rồi --- home của MaterialApp
-        );
-  }
-}
 
 // Đây là nhà chính ứng dụng --- 1 màn hình
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class demo_Scaffold_basic extends StatefulWidget {
+  const demo_Scaffold_basic({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<demo_Scaffold_basic> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<demo_Scaffold_basic> {
   bool demoState = true;
 
   void changeState() {
@@ -62,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
             margin: EdgeInsets.symmetric(vertical: 10),
             alignment: Alignment.center,
 
-            //KHI ĐÃ DÙNG decoration thì k được phép đùng color nữa
+            //Khi đã dùng decoration thì không được phép đùng color nữa
             decoration: BoxDecoration(
               color: Color.fromRGBO(47, 47, 79, 1),
 

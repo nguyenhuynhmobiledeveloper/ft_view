@@ -14,79 +14,90 @@ class _DemoAlignState extends State<DemoAlign> {
     return Scaffold(
       appBar: AppBar(title: Text('Demo Align')),
       body: SafeArea(
-        child: Container(
-            child: Column(children: [
-
+        child: Column(children: [
           Container(
             height: 1,
             color: Colors.amber,
           ),
 
+          // View row dùng ClipRRect để boder
           Row(
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child:const  Image(
+                child: const Image(
                   height: 70,
                   width: 70,
                   image: NetworkImage(
                       'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
                 ),
               ),
-             const Column(
-               children: [
-                 Text('Mua bán có tâm'),
-                 Row(
-                   children: [Text("8K Fan"), Text("+10 bài viết mới nhất")],
-                 )
-               ],
-             )
+              const Column(
+                children: [
+                  Text('Mua bán có tâm'),
+                  Row(
+                    children: [Text("8K Fan"), Text("+10 bài viết mới nhất")],
+                  )
+                ],
+              )
             ],
           ),
-              Center(
+          
+          // child được căn ở góp trên bên phải 
+          Container(
+            height: 120.0,
+            width: 120.0,
+            color: Colors.blue[50],
+            child: const Align(
+              alignment: Alignment.topRight,
+              child: FlutterLogo(
+                size: 60,
+              ),
+            ),
+          ),
+        
+          const SizedBox(
+            height: 5,
+          ),
+
+          // Căn Align dựa theo trục x y
+          Center(
+            child: Container(
+              height: 120.0,
+              width: 120.0,
+              color: Colors.blue[50],
+              child: Align(
+                // trục x: -1 là bên trái: 0 là ở giữa , 1 là bên phải
+                // trục y: -1 là top, 0 là ở giữa, 1 là bottom
+                alignment: Alignment(-1, -1),
                 child: Container(
-                  height: 120.0,
-                  width: 120.0,
-                  color: Colors.blue[50],
-                  child: const Align(
-                    alignment: Alignment.topRight,
-                    child: FlutterLogo(
-                      size: 60,
-                    ),
-                  ),
+                  width: 40,
+                  height: 40,
+                  color: Colors.amber,
                 ),
               ),
-              const SizedBox(height: 5,),
-              Center(
-                child: Container(
-                  height: 120.0,
-                  width: 120.0,
-                  color: Colors.blue[50],
-                  child: const Align(
-                    alignment: Alignment(0.2, 0.6),
-                    child: FlutterLogo(
-                      size: 60,
-                    ),
-                  ),
+            ),
+          ),
+          
+          const SizedBox(
+            height: 5,
+          ),
+          Center(
+            child: Container(
+              height: 120.0,
+              width: 120.0,
+              color: Colors.blue[50],
+              child: const Align(
+                alignment: FractionalOffset(0.2, 0.6),
+                child: FlutterLogo(
+                  size: 60,
                 ),
               ),
-              const SizedBox(height: 5,),
-              Center(
-                child: Container(
-                  height: 120.0,
-                  width: 120.0,
-                  color: Colors.blue[50],
-                  child: const Align(
-                    alignment: FractionalOffset(0.2, 0.6),
-                    child: FlutterLogo(
-                      size: 60,
-                    ),
-                  ),
-                ),
-              )
-
-
-        ])),
+            ),
+          )
+        
+        
+        ]),
       ),
     );
   }

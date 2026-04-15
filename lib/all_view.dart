@@ -46,8 +46,8 @@ import 'package:demo_ft_widget/view_ScrollView/demo_SingleChildScrollView.dart';
 import 'package:demo_ft_widget/view_text/demo_Text.dart';
 import 'package:demo_ft_widget/view_text/demo_TextPainter.dart';
 import 'package:demo_ft_widget/view_text_field/demo_TextField.dart';
-import 'package:demo_ft_widget/view_text_field/demo_TextField_advance.dart'
-    show CustomTextField;
+import 'package:demo_ft_widget/view_text_field/demo_TextField_advance.dart';
+
 import 'package:demo_ft_widget/view-library/tin_coder_view.dart';
 import 'package:flutter/material.dart';
 
@@ -291,7 +291,7 @@ final Map<String, WidgetBuilder> allBuilders = {
   'view_frame/demo_Align.dart': (_) => const DemoAlign(),
   'view_frame/demo_Column.dart': (_) => const DemoColumn(),
   'view_frame/demo_Container.dart': (_) => const DemoContainer(),
-  'view_frame/demo_Row.dart': (_) => const DemoRow(),
+  'view_frame/demo_Row.dart': (_) => const demo_Row(),
   'view_frame/demo_Stack.dart': (_) => const DemoStack(),
   'view_frame/demo_Stack_Positioned.dart': (_) => const demo_Stack_Positioned(),
   'view_frame/demo_SizeBox.dart': (_) => demo_SizeBox(),
@@ -301,7 +301,7 @@ final Map<String, WidgetBuilder> allBuilders = {
       const demo_ClipRRect_example(),
   'view_frame/demo_Scaffold.dart': (_) => const DemoScaffold(),
   'view_frame/demo_Scaffold_basic.dart': (_) =>
-      const scaffold_basic.MyHomePage(),
+      const scaffold_basic.demo_Scaffold_basic(),
   'view_GridView/demo_GridView_loadmore.dart': (_) => const GridViewLoadMore(),
   'view_GridView/demo_Container_NotificationListener_GridView_loadmore.dart':
       (_) => ContainerNotificationListenerGridviewLoadMore(),
@@ -326,7 +326,7 @@ final Map<String, WidgetBuilder> allBuilders = {
   'view_loading/demo_CircularProgressIndicator.dart': (_) =>
       const CircularLoadingExample(),
   'view_modal_bottom/demo_showModalBottomSheet.dart': (_) =>
-      const BottomSheetExample(),
+      const demo_showModalBottomSheet(),
   'view_page_view/demo_PageController.dart': (_) => demo_PageController(),
   'view_page_view/demo_AnimatedSwitcher.dart': (_) => demo_AnimatedSwitcher(),
   'view_ScrollView/demo_SingleChildScrollView.dart': (_) =>
@@ -340,7 +340,7 @@ final Map<String, WidgetBuilder> allBuilders = {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              CustomTextField(),
+            demo_TextField_advance()
             ],
           ),
         ),
